@@ -6,6 +6,12 @@ import App from 'components/App';
 import CommentBox from "components/CommentBox";
 import CommentList from "components/CommentList";
 
+let wrapped;
+
+beforeEach(() => {
+  wrapped = shallow(<App />);
+});
+
 it('shows a comment box', () => {
   // ---> without enzyme / Static Enzyme (Render the given component and return plain HTML)
   
@@ -21,16 +27,9 @@ it('shows a comment box', () => {
   
   // ---> using Shallow Enzyme (Render *just* the given component and none of its children)
   
-  const wrapped = shallow(<App />);
-
   expect(wrapped.find(CommentBox).length).toEqual(1);
-  
-  // ---> using Enzyme
 });
 
 it('shows a comment list', () => {
-  const wrapped = shallow(<App />);
-  
   expect(wrapped.find(CommentList).length).toEqual(1);
-  
 });
