@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import CommentBox from 'components/CommentBox';
+import Root from 'Root';
 
 
 // ---> using Enzyme Full DOM (Render the component and all of its children + let us modify it afterwards)
@@ -10,7 +11,11 @@ import CommentBox from 'components/CommentBox';
 let wrapped;
 
 beforeEach(() => {
-  wrapped = mount(<CommentBox />);
+  wrapped = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+  );
 });
 
 afterEach(() => {
