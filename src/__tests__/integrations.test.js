@@ -28,7 +28,7 @@ it('can fetch a list of comments and display them', (done) => {
   wrapped.find('.fetch-comments').simulate('click');
   
   // introduce a TINY little pause
-  setTimeout(() => {
+  moxios.wait(() => {
     wrapped.update();
   
     // Expect to find a list of comments!
@@ -36,5 +36,5 @@ it('can fetch a list of comments and display them', (done) => {
     
     done();
     wrapped.unmount();
-  }, 100);
+  });
 });
